@@ -40,6 +40,7 @@ Using the Udacity provided simulator and my drive.py file, the car can be driven
 ```sh
 python drive.py model.h5
 ```
+speed in drive.py is modified from 9 to 20 to make the car drive faster.
 
 #### 3. Submission code is usable and readable
 
@@ -82,6 +83,7 @@ In order to gauge how well the model was working, I split my image and steering 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track, especially at sharp turn. I believe this is more affected by training data rather than the model architecture. To improve the driving behavior in these cases, I tried to collect more data on turing around curves.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+Please check [run1.mp4](https://github.com/neo-cc/CarND-Behavioral-Cloning-P3/blob/master/run1.mp4)
 
 #### 2. Final Model Architecture
 
@@ -115,7 +117,7 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![center][image3]
 
-I did not record the vehicle recovering from the left side and right sides of the road back to center. Instead, I used left camera and right camera images for training. +0.2 steering angle is added for left images and -2.0 for right images. These images teaches the car how to return to 
+I did not record the vehicle recovering from the left side and right sides of the road back to center. Instead, I used left camera and right camera images for training. +0.2 steering angle is added for left images and -2.0 for right images. These images teaches the car how to return to center even it's off the track.
 
 ![left][image4]
 ![right][image5]
@@ -132,3 +134,8 @@ I finally randomly shuffled the data set and put 20% of the data into a validati
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 3. (I set epochs to 10 at first but validation loss is not decreasing after epoch 3) The validation loss I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
 ![model_mse_loss][image1]
+
+#### 4. Track Two test
+
+I did not record any data from track two. When I used my trained model to test autonomously drive on track two, the car went off the road at the beginning and can never recover. Current trained model is only good for track one. 
+
